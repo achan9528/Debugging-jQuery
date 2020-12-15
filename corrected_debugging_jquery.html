@@ -1,36 +1,41 @@
 <html>
 <head>
-	<title>jQuery</title>
-	<link rel="stylesheet" type="text/css" href="debugging_jquery.css">
+	<title>Corrected Version</title>
+    <link rel="stylesheet" type="text/css" href="debugging_jquery.css">
 	<script type="text/javascript" src='http://code.jquery.com/jquery-1.10.2.min.js'></script>
 	<script type="text/javascript">
-		$(document).ready(function(){
-
-			$('p, h3, li').hover(function(){
-				$(this).css('color', 'white');
-			}, function(){
-				$(this).css('color', 'black');
-			})
+        //should have a $(document).ready() for best practice
+        $(document).ready(function(){
+            // should only be hover
+            // should have a callback function signature
+            $('p, h3, li').hover(
+                function(){
+				    $(this).css('color', 'white');
+			    }, function(){
+                    $(this).css('color', 'black');
+                }
+            );
 
 			$('a').click(function(){
 				alert("we don't actually serve pizza...");
-			})
+			});
 
 			$('img').click(function(){
-				$(this).slideUp();
-			})
+                $(this).slideUp();
+                // missing endng parenthese
+            });
 
 			$('h5').click(function(){
+				// spacing error, should be slideDown
 				$('img').slideDown();
-			})
+			});
 
 			$('button').click(function(){
+                // value should be .val()
 				var result = $('input:checked').val()  
 				alert("Thank you for your input, we like " + result + " too!");
-			})
-
-
-		});
+			});	
+        });
 	</script>
 </head>
 <body>
